@@ -21,7 +21,7 @@ export async function extractScopeFromTranscript(
   }
 
   const { object } = await generateObject({
-    model: openrouter("nvidia/llama-3.1-nemotron-ultra-253b-v1"),
+    model: openrouter("nvidia/nemotron-3-super-120b-a12b:free"),
     schema: extractedScopeSchema,
     system: SYSTEM,
     prompt: `Transcript from contractor site note:\n\n${transcript}`,
