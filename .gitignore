@@ -1,1 +1,28 @@
+# dependencies
 node_modules/
+
+# next.js build output
+.next/
+out/
+
+# environment variables
+.env.local
+.env*.local
+
+# vercel
+.vercel/
+
+# debug
+npm-debug.log*
+dev.log
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# misc
+.DS_Store
+*.pem
+
+# data directory (file-based storage fallback)
+.data/

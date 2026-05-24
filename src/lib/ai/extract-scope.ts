@@ -1,10 +1,6 @@
-import { createOpenAI } from "@ai-sdk/openai";
+import { openrouter } from "@openrouter/ai-sdk-provider";
 import { generateObject } from "ai";
 import { extractedScopeSchema } from "@/lib/quote-schema";
-
-const openai = createOpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
 
 const SYSTEM = `You are a quantity surveyor assistant for South African general building and construction.
 Extract a structured scope from site walkthrough transcripts or voice notes.
@@ -20,12 +16,12 @@ Rules:
 export async function extractScopeFromTranscript(
   transcript: string,
 ): Promise<ReturnType<typeof extractedScopeSchema.parse>> {
-  if (!process.env.OPENAI_API_KEY) {
-    throw new Error("OPENAI_API_KEY is required");
+  if (!process.env.OPENROUTER_API_KEY) {
+    throw new Error("OPENROUTER_API_KEY is required");
   }
 
   const { object } = await generateObject({
-    model: openai("gpt-4o-mini"),
+    model: openrouter("nvidia/llama-3.1-nemotron-ultra-253b-v1"),
     schema: extractedScopeSchema,
     system: SYSTEM,
     prompt: `Transcript from contractor site note:\n\n${transcript}`,
