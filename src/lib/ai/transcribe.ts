@@ -2,37 +2,31 @@ export async function transcribeAudio(
   audioBuffer: ArrayBuffer,
   mimeType: string,
 ): Promise<string> {
-  const apiKey = process.env.OPENROUTER_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
-    throw new Error("OPENROUTER_API_KEY is required for transcription");
+    throw new Error("GROQ_API_KEY is required for transcription");
   }
 
-  const base64 = Buffer.from(audioBuffer).toString("base64");
-
-  const format = mimeType.includes("mp4")
+  const formData = new FormData();
+  const blob = new Blob([audioBuffer], { type: mimeType });
+  
+  const extension = mimeType.includes("mp4")
     ? "mp4"
     : mimeType.includes("mpeg")
       ? "mp3"
       : "webm";
+      
+  formData.append("file", blob, `audio.${extension}`);
+  formData.append("model", "whisper-large-v3");
+  formData.append("language", "en");
 
-  const res = await fetch(
-    "https://openrouter.ai/api/v1/audio/transcriptions",
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "openai/whisper-large-v3",
-        input_audio: {
-          data: base64,
-          format,
-        },
-        language: "en",
-      }),
+  const res = await fetch("https://api.groq.com/openai/v1/audio/transcriptions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
     },
-  );
+    body: formData,
+  });
 
   if (!res.ok) {
     const err = await res.text();
