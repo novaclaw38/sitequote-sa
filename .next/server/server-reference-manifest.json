@@ -1,0 +1,18 @@
+{
+  "node": {
+    "008b29e66104837aad5d23c3021e016cb9d3d21ce6": {
+      "workers": {
+        "app/page": {
+          "moduleId": 87004,
+          "async": false,
+          "exportedName": "$$RSC_SERVER_ACTION_0",
+          "filename": "src/components/Nav.tsx"
+        }
+      },
+      "filename": "src/components/Nav.tsx",
+      "exportedName": "$$RSC_SERVER_ACTION_0"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "L5FOcgHEOQtyeHAKz++XYujKQLnajn81tE+CCVxKiKc="
+}

@@ -1,0 +1,19 @@
+{
+  "name": "SiteQuote SA",
+  "short_name": "SiteQuote",
+  "description": "Construction quotes from voice and video for South African builders",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#f59e0b",
+  "orientation": "portrait",
+  "lang": "en-ZA",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
