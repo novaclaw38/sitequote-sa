@@ -13,9 +13,12 @@ export function QuoteRespond({ token, initialStatus }: Props) {
 
   if (status === "accepted" || status === "declined") {
     return (
-      <p className="mt-8 text-center text-lg font-medium text-amber-400">
-        You {status === "accepted" ? "accepted" : "declined"} this quote.
-      </p>
+      <div className="mt-10 p-6 glass-static border-amber-500/20 text-center animate-pulse">
+        <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">
+          You {status === "accepted" ? "accepted" : "declined"} this quote.
+        </p>
+        <p className="text-xs text-zinc-500 mt-1">Thank you for your response.</p>
+      </div>
     );
   }
 
@@ -31,20 +34,21 @@ export function QuoteRespond({ token, initialStatus }: Props) {
   };
 
   return (
-    <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+    <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
       <button
         type="button"
         disabled={loading}
         onClick={() => respond("accepted")}
-        className="rounded-xl bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-500 disabled:opacity-50"
+        className="btn-success text-sm py-3.5 px-8 font-bold text-white"
       >
+        {loading && <span className="spinner" />}
         Accept quote
       </button>
       <button
         type="button"
         disabled={loading}
         onClick={() => respond("declined")}
-        className="rounded-xl border border-zinc-600 px-6 py-3 font-semibold text-zinc-300 hover:bg-zinc-800 disabled:opacity-50"
+        className="btn-secondary text-sm py-3.5 px-8 font-bold text-zinc-400 hover:text-white"
       >
         Decline
       </button>

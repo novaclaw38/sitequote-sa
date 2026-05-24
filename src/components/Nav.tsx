@@ -9,32 +9,37 @@ export async function Nav() {
     : null;
 
   return (
-    <nav className="mb-6 flex items-center justify-between gap-4">
-      <Link href="/" className="text-lg font-bold text-amber-500">
-        SiteQuote
+    <nav className="mb-8 flex items-center justify-between gap-4">
+      <Link href="/" className="group flex items-center gap-2">
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 text-sm font-black text-black shadow-lg shadow-amber-500/20">
+          S
+        </div>
+        <span className="text-lg font-bold text-white/90 group-hover:text-white transition-colors">
+          SiteQuote
+        </span>
       </Link>
-      <div className="flex items-center gap-3 text-sm">
+      <div className="flex items-center gap-1 text-sm">
         {contractor ? (
           <>
-            <span className="hidden text-zinc-500 sm:inline">
+            <span className="hidden text-zinc-500 sm:inline mr-2">
               {contractor.companyName}
             </span>
-            <Link href="/price-list" className="text-zinc-400 hover:text-white">
+            <Link href="/price-list" className="btn-secondary !py-1.5 !px-3 !text-xs">
               Prices
             </Link>
-            <Link href="/settings" className="text-zinc-400 hover:text-white">
+            <Link href="/settings" className="btn-secondary !py-1.5 !px-3 !text-xs">
               Settings
             </Link>
             <LogoutButton />
           </>
         ) : (
           <>
-            <Link href="/login" className="text-zinc-400 hover:text-white">
+            <Link href="/login" className="btn-secondary !py-1.5 !px-3 !text-xs">
               Log in
             </Link>
             <Link
               href="/register"
-              className="rounded-lg bg-zinc-800 px-3 py-1.5 text-white hover:bg-zinc-700"
+              className="btn-secondary !py-1.5 !px-3 !text-xs !border-amber-500/30 !text-amber-400 hover:!bg-amber-500/10"
             >
               Sign up
             </Link>
@@ -56,7 +61,7 @@ function LogoutButton() {
         redirect("/");
       }}
     >
-      <button type="submit" className="text-zinc-400 hover:text-white">
+      <button type="submit" className="btn-secondary !py-1.5 !px-3 !text-xs !text-red-400 !border-red-500/20 hover:!bg-red-500/10">
         Log out
       </button>
     </form>
