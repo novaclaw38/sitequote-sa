@@ -1,0 +1,9 @@
+{
+  "framework": "nextjs",
+  "regions": ["cpt1"],
+  "functions": {
+    "src/app/api/quotes/route.ts": {
+      "maxDuration": 120
+    }
+  }
+}

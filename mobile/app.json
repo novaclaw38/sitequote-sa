@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "SiteQuote SA",
+    "slug": "sitequote-sa",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "scheme": "sitequote",
+    "splash": {
+      "backgroundColor": "#09090b"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "za.co.sitequote.app",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Record site voice notes for quotations.",
+        "NSCameraUsageDescription": "Record site walkthrough videos for quotations."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#f59e0b"
+      },
+      "package": "za.co.sitequote.app",
+      "permissions": ["RECORD_AUDIO", "CAMERA"]
+    },
+    "plugins": ["expo-router"]
+  }
+}
