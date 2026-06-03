@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
-import { buildQuoteFromTranscript } from "@/lib/ai/build-quote";
+import {
+  buildQuoteFromScope,
+  buildQuoteFromTranscript,
+} from "@/lib/ai/build-quote";
 import { transcribeAudio } from "@/lib/ai/transcribe";
+import { getTemplate, scopeFromTemplate } from "@/lib/templates";
 import { saveQuote, listQuotes } from "@/lib/store";
 import { getSession } from "@/lib/auth/session";
 import { getContractorById } from "@/lib/contractors";
@@ -32,6 +36,8 @@ export async function POST(request: Request) {
     let transcript: string | undefined;
     let mediaUrl: string | undefined;
     let mediaType: "audio" | "video" | undefined;
+    let templateId: string | undefined;
+    let templateInputs: Record<string, number> = {};
 
     if (contentType.includes("multipart/form-data")) {
       const formData = await request.formData();
@@ -72,12 +78,36 @@ export async function POST(request: Request) {
         mediaType?: "audio" | "video";
         labourRateZar?: number;
         markupPercent?: number;
+        templateId?: string;
+        inputs?: Record<string, number>;
       };
       transcript = body.transcript?.trim();
       mediaUrl = body.mediaUrl;
       mediaType = body.mediaType;
+      templateId = body.templateId;
+      if (body.inputs) templateInputs = body.inputs;
       if (body.labourRateZar != null) labourRateZar = body.labourRateZar;
       if (body.markupPercent != null) markupPercent = body.markupPercent;
+    }
+
+    // Job-template path: deterministic scope from a picked job + measurements.
+    if (templateId) {
+      const template = getTemplate(templateId);
+      if (!template) {
+        return NextResponse.json(
+          { error: "Unknown job template" },
+          { status: 400 },
+        );
+      }
+      const scope = scopeFromTemplate(template, templateInputs);
+      const quote = await buildQuoteFromScope({
+        scope,
+        labourRateZar,
+        markupPercent,
+        contractorId: session?.contractorId ?? null,
+      });
+      const stored = await saveQuote(quote, session?.contractorId ?? null);
+      return NextResponse.json({ quote: stored });
     }
 
     if (!transcript) {

@@ -73,9 +73,16 @@ export default function RecordPage() {
 
       <div className="mb-6">
         <h1 className="text-2xl font-semibold tracking-tight text-white">New site quote</h1>
-        <p className="text-slate-400 text-sm mt-1 leading-relaxed">
+        <p className="mt-1 text-sm leading-relaxed text-slate-400">
           Walk the site and describe work, quantities, and materials. We transcribe,
           price from SA suppliers, and build your quote.
+        </p>
+        <p className="mt-2 text-xs text-slate-500">
+          Standard job?{" "}
+          <Link href="/templates" className="font-medium text-emerald-400 underline underline-offset-2 transition-colors hover:text-emerald-300">
+            Start from a template
+          </Link>{" "}
+          instead.
         </p>
       </div>
 

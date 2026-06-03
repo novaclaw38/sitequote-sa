@@ -8,7 +8,7 @@ import {
   searchSupplierPrices,
 } from "@/lib/suppliers/search";
 import { findPriceListMatch } from "@/lib/price-list";
-import type { LineItem, Quote } from "@/lib/quote-schema";
+import type { ExtractedScope, LineItem, Quote } from "@/lib/quote-schema";
 
 type BuildQuoteInput = {
   transcript: string;
@@ -19,10 +19,26 @@ type BuildQuoteInput = {
   contractorId?: string | null;
 };
 
-export async function buildQuoteFromTranscript(
-  input: BuildQuoteInput,
+type ScopeBuildInput = {
+  scope: ExtractedScope;
+  transcript?: string;
+  mediaUrl?: string;
+  mediaType?: "audio" | "video";
+  labourRateZar?: number;
+  markupPercent?: number;
+  contractorId?: string | null;
+};
+
+/**
+ * Turn a structured scope into a priced quote.
+ * Pricing priority per material line: contractor price list → live supplier
+ * search → baseline estimate. Shared by the voice/transcript path and the
+ * job-template path.
+ */
+export async function buildQuoteFromScope(
+  input: ScopeBuildInput,
 ): Promise<Quote> {
-  const scope = await extractScopeFromTranscript(input.transcript);
+  const { scope } = input;
   const labourRateZar = input.labourRateZar ?? DEFAULT_LABOUR_RATE_ZAR;
   const lineItems: LineItem[] = [];
 
@@ -95,7 +111,7 @@ export async function buildQuoteFromTranscript(
     });
   }
 
-  const quote: Quote = {
+  return {
     id: uuidv4(),
     createdAt: new Date().toISOString(),
     status: "draft",
@@ -112,8 +128,21 @@ export async function buildQuoteFromTranscript(
     notes: scope.assumptions?.join("\n"),
     aiSummary: scope.summary,
   };
+}
 
-  return quote;
+export async function buildQuoteFromTranscript(
+  input: BuildQuoteInput,
+): Promise<Quote> {
+  const scope = await extractScopeFromTranscript(input.transcript);
+  return buildQuoteFromScope({
+    scope,
+    transcript: input.transcript,
+    mediaUrl: input.mediaUrl,
+    mediaType: input.mediaType,
+    labourRateZar: input.labourRateZar,
+    markupPercent: input.markupPercent,
+    contractorId: input.contractorId,
+  });
 }
 
 /** Rough ZAR fallback when supplier API unavailable */
