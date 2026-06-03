@@ -1,3 +1,0 @@
-{
-  "/api/public/quotes/[token]/route": "app/api/public/quotes/[token]/route.js"
-}
