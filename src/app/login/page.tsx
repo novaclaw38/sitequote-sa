@@ -40,12 +40,12 @@ export default function LoginPage() {
       </Link>
 
       <div className="glass-static p-8 w-full">
-        <h1 className="text-2xl font-bold text-white mb-1">Welcome back</h1>
-        <p className="text-sm text-zinc-500 mb-6">Sign in to your SiteQuote account</p>
+        <h1 className="text-2xl font-semibold tracking-tight text-white mb-1">Welcome back</h1>
+        <p className="text-sm text-slate-500 mb-6">Sign in to your SiteQuote account</p>
 
         <form onSubmit={submit} className="space-y-4">
           <label className="block">
-            <span className="text-xs font-medium text-zinc-400 uppercase tracking-wide">Email</span>
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">Email</span>
             <input
               type="email"
               required
@@ -56,7 +56,7 @@ export default function LoginPage() {
             />
           </label>
           <label className="block">
-            <span className="text-xs font-medium text-zinc-400 uppercase tracking-wide">Password</span>
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">Password</span>
             <input
               type="password"
               required
@@ -67,9 +67,9 @@ export default function LoginPage() {
             />
           </label>
           {error && (
-            <div className="flex items-center gap-2 rounded-lg bg-red-500/10 border border-red-500/20 px-3 py-2.5">
-              <svg className="w-4 h-4 text-red-400 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
-              <p className="text-sm text-red-300">{error}</p>
+            <div className="flex items-center gap-2 rounded-lg bg-rose-500/10 border border-rose-500/20 px-3 py-2.5">
+              <svg className="w-4 h-4 text-rose-400 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+              <p className="text-sm text-rose-300">{error}</p>
             </div>
           )}
           <button type="submit" disabled={loading} className="btn-primary w-full mt-2">
@@ -80,9 +80,9 @@ export default function LoginPage() {
 
         <div className="divider my-6" />
 
-        <p className="text-sm text-zinc-500 text-center">
+        <p className="text-sm text-slate-500 text-center">
           No account?{" "}
-          <Link href="/register" className="text-amber-400 font-medium hover:text-amber-300 transition-colors">
+          <Link href="/register" className="text-emerald-400 font-medium hover:text-emerald-300 transition-colors">
             Sign up free
           </Link>
         </p>

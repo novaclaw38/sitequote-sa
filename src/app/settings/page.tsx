@@ -64,7 +64,7 @@ export default function SettingsPage() {
   if (!contractor) {
     return (
       <main className="mx-auto flex min-h-screen max-w-md flex-col items-center justify-center px-5 text-center">
-        <p className="text-zinc-400 mb-4">Please log in to manage settings.</p>
+        <p className="text-slate-400 mb-4">Please log in to manage settings.</p>
         <Link href="/login" className="btn-primary">Log in</Link>
       </main>
     );
@@ -78,12 +78,12 @@ export default function SettingsPage() {
       </Link>
 
       <div className="glass-static p-8">
-        <h1 className="text-2xl font-bold text-white">Settings</h1>
-        <p className="text-sm text-zinc-500 mt-1">{contractor.email}</p>
+        <h1 className="text-2xl font-semibold tracking-tight text-white">Settings</h1>
+        <p className="text-sm text-slate-500 mt-1">{contractor.email}</p>
 
         <form onSubmit={save} className="mt-6 space-y-4">
           <label className="block">
-            <span className="text-xs font-medium text-zinc-400 uppercase tracking-wide">Company name</span>
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">Company name</span>
             <input
               className="input mt-2"
               value={contractor.companyName}
@@ -93,7 +93,7 @@ export default function SettingsPage() {
             />
           </label>
           <label className="block">
-            <span className="text-xs font-medium text-zinc-400 uppercase tracking-wide">Phone / WhatsApp</span>
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">Phone / WhatsApp</span>
             <input
               className="input mt-2"
               value={contractor.phone ?? ""}
@@ -105,7 +105,7 @@ export default function SettingsPage() {
 
           <div className="flex gap-4">
             <label className="block flex-1">
-              <span className="text-xs font-medium text-zinc-400 uppercase tracking-wide">Labour rate (R/hr)</span>
+              <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">Labour rate (R/hr)</span>
               <input
                 type="number"
                 className="input mt-2"
@@ -120,7 +120,7 @@ export default function SettingsPage() {
               />
             </label>
             <label className="block flex-1">
-              <span className="text-xs font-medium text-zinc-400 uppercase tracking-wide">Markup (%)</span>
+              <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">Markup (%)</span>
               <input
                 type="number"
                 className="input mt-2"
@@ -136,9 +136,9 @@ export default function SettingsPage() {
           </div>
 
           {message && (
-            <div className="flex items-center gap-2 rounded-lg bg-green-500/10 border border-green-500/20 px-3 py-2.5">
-              <svg className="w-4 h-4 text-green-400 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-              <p className="text-sm text-green-300">{message}</p>
+            <div className="flex items-center gap-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 px-3 py-2.5">
+              <svg className="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              <p className="text-sm text-emerald-300">{message}</p>
             </div>
           )}
 

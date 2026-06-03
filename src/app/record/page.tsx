@@ -72,8 +72,8 @@ export default function RecordPage() {
       </Link>
 
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">New site quote</h1>
-        <p className="text-zinc-400 text-sm mt-1 leading-relaxed">
+        <h1 className="text-2xl font-semibold tracking-tight text-white">New site quote</h1>
+        <p className="text-slate-400 text-sm mt-1 leading-relaxed">
           Walk the site and describe work, quantities, and materials. We transcribe,
           price from SA suppliers, and build your quote.
         </p>
@@ -90,7 +90,7 @@ export default function RecordPage() {
 
       <div className="mt-6 space-y-4">
         <label className="block">
-          <span className="text-xs font-medium text-zinc-400 uppercase tracking-wide">Labour rate (ZAR/hour)</span>
+          <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">Labour rate (ZAR/hour)</span>
           <input
             type="number"
             value={labourRate}
@@ -100,8 +100,8 @@ export default function RecordPage() {
         </label>
 
         <details className="glass-static p-4 group">
-          <summary className="cursor-pointer text-sm text-zinc-400 font-medium flex items-center gap-2">
-            <svg className="w-4 h-4 text-zinc-500 transition-transform group-open:rotate-90" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+          <summary className="cursor-pointer text-sm text-slate-400 font-medium flex items-center gap-2">
+            <svg className="w-4 h-4 text-slate-500 transition-transform group-open:rotate-90" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
             Demo: paste transcript instead
           </summary>
           <textarea
@@ -117,9 +117,9 @@ export default function RecordPage() {
       </div>
 
       {error && (
-        <div className="mt-4 flex items-center gap-2 rounded-lg bg-red-500/10 border border-red-500/20 px-4 py-3">
-          <svg className="w-4 h-4 text-red-400 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
-          <p className="text-sm text-red-300">{error}</p>
+        <div className="mt-4 flex items-center gap-2 rounded-lg bg-rose-500/10 border border-rose-500/20 px-4 py-3">
+          <svg className="w-4 h-4 text-rose-400 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+          <p className="text-sm text-rose-300">{error}</p>
         </div>
       )}
 
@@ -135,7 +135,7 @@ export default function RecordPage() {
 
       {loading && (
         <div className="mt-4 text-center">
-          <p className="text-xs text-zinc-500 animate-pulse">
+          <p className="text-xs text-slate-500 animate-pulse">
             Transcribing → Extracting scope → Checking supplier prices…
           </p>
         </div>

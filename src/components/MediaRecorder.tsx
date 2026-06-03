@@ -72,15 +72,15 @@ export function MediaRecorderPanel({ onRecordingReady, disabled }: Props) {
   return (
     <div className="space-y-4">
       {/* Mode toggle */}
-      <div className="flex gap-2 p-1 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+      <div className="flex gap-2 rounded-xl border border-slate-800 bg-slate-900 p-1">
         <button
           type="button"
           disabled={disabled || recording}
           onClick={() => setMode("audio")}
-          className={`flex-1 flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-all ${
+          className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 ease-in-out ${
             mode === "audio"
-              ? "bg-gradient-to-r from-amber-500 to-orange-500 text-black shadow-lg shadow-amber-500/20"
-              : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
+              ? "bg-emerald-500 text-slate-950"
+              : "text-slate-400 hover:bg-slate-800 hover:text-white"
           }`}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
@@ -90,10 +90,10 @@ export function MediaRecorderPanel({ onRecordingReady, disabled }: Props) {
           type="button"
           disabled={disabled || recording}
           onClick={() => setMode("video")}
-          className={`flex-1 flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-all ${
+          className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 ease-in-out ${
             mode === "video"
-              ? "bg-gradient-to-r from-amber-500 to-orange-500 text-black shadow-lg shadow-amber-500/20"
-              : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
+              ? "bg-emerald-500 text-slate-950"
+              : "text-slate-400 hover:bg-slate-800 hover:text-white"
           }`}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" /></svg>
@@ -105,14 +105,14 @@ export function MediaRecorderPanel({ onRecordingReady, disabled }: Props) {
       <div className="glass-static flex flex-col items-center gap-5 p-10">
         {recording ? (
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 chip chip-amber mb-3">
-              <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+            <div className="chip mb-3 inline-flex items-center gap-2 border-rose-600/30 bg-rose-600/10 text-rose-400">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-rose-500" />
               Recording…
             </div>
-            <p className="text-xs text-zinc-500">Tap the button to stop</p>
+            <p className="text-xs text-slate-500">Tap the button to stop</p>
           </div>
         ) : (
-          <p className="text-zinc-400 text-center text-sm leading-relaxed max-w-xs">
+          <p className="max-w-xs text-center text-sm leading-relaxed text-slate-400">
             Describe the job: materials, sizes, labour, access issues.
           </p>
         )}
@@ -121,10 +121,10 @@ export function MediaRecorderPanel({ onRecordingReady, disabled }: Props) {
           type="button"
           disabled={disabled}
           onClick={recording ? stopRecording : startRecording}
-          className={`h-20 w-20 rounded-full text-lg font-bold transition-all ${
+          className={`h-20 w-20 rounded-full text-lg font-semibold transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${
             recording
-              ? "bg-red-500 text-white pulse-ring hover:bg-red-400"
-              : "bg-gradient-to-br from-amber-400 to-orange-500 text-black shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105 active:scale-95"
+              ? "pulse-ring bg-rose-600 text-white hover:bg-rose-500"
+              : "bg-emerald-500 text-slate-950 hover:bg-emerald-400 active:scale-95"
           }`}
         >
           {recording ? (
@@ -143,9 +143,9 @@ export function MediaRecorderPanel({ onRecordingReady, disabled }: Props) {
       </div>
 
       {/* Upload fallback */}
-      <label className="glass-static flex flex-col items-center gap-2 p-5 cursor-pointer hover:border-amber-500/20 transition-colors">
-        <svg className="w-5 h-5 text-zinc-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
-        <span className="text-xs text-zinc-400 font-medium">Or upload a file</span>
+      <label className="glass-static flex cursor-pointer flex-col items-center gap-2 p-5 transition-all duration-200 ease-in-out hover:border-emerald-500/30">
+        <svg className="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+        <span className="text-xs font-medium text-slate-400">Or upload a file</span>
         <input
           type="file"
           accept="audio/*,video/*"

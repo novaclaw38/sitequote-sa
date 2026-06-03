@@ -16,15 +16,13 @@ export default async function HomePage() {
 
       {/* Hero */}
       <header className="mb-10 page-enter">
-        <div className="chip chip-amber mb-5">South Africa 🇿🇦</div>
-        <h1 className="text-4xl font-extrabold tracking-tight leading-[1.1] text-white sm:text-5xl">
-          Site to quote<span className="text-amber-400">,</span>
+        <div className="chip chip-green mb-5">South Africa 🇿🇦</div>
+        <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
+          Site to quote<span className="text-emerald-400">,</span>
           <br />
-          <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 bg-clip-text text-transparent">
-            in minutes.
-          </span>
+          <span className="text-emerald-400">in minutes.</span>
         </h1>
-        <p className="mt-4 text-base text-zinc-400 leading-relaxed max-w-md">
+        <p className="mt-4 max-w-md text-base leading-relaxed text-slate-400">
           Record a walkthrough or voice note — we extract materials, fetch live
           supplier prices, and deliver a VAT-ready quote.
         </p>
@@ -32,20 +30,20 @@ export default async function HomePage() {
 
       {/* CTA */}
       <div className="page-enter stagger-1">
-        <Link href="/record" className="btn-primary w-full text-lg py-5 rounded-2xl">
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+        <Link href="/record" className="btn-primary w-full py-4 text-base">
+          <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
           New quote from voice / video
         </Link>
       </div>
 
       {!session && (
         <div className="page-enter stagger-2 mt-6">
-          <div className="glass-static p-4 flex items-center gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10">
-              <svg className="h-4 w-4 text-amber-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+          <div className="glass-static flex items-center gap-3 p-4">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/10">
+              <svg className="h-4 w-4 text-emerald-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
             </div>
-            <p className="text-sm text-zinc-400">
-              <Link href="/register" className="font-semibold text-amber-400 hover:text-amber-300 underline underline-offset-2 transition-colors">
+            <p className="text-sm text-slate-400">
+              <Link href="/register" className="font-medium text-emerald-400 underline underline-offset-2 transition-colors hover:text-emerald-300">
                 Create a free account
               </Link>{" "}
               to save quotes and set your labour rates.
@@ -56,8 +54,8 @@ export default async function HomePage() {
 
       {/* Recent quotes */}
       <section className="mt-10 page-enter stagger-3">
-        <div className="flex items-center gap-4 mb-5">
-          <h2 className="text-xs font-semibold text-zinc-500 uppercase tracking-widest whitespace-nowrap">
+        <div className="mb-5 flex items-center gap-4">
+          <h2 className="whitespace-nowrap text-xs font-medium uppercase tracking-widest text-slate-500">
             Recent quotes
           </h2>
           <div className="divider flex-1" />
@@ -65,11 +63,11 @@ export default async function HomePage() {
 
         {quotes.length === 0 ? (
           <div className="glass-static p-10 text-center">
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-zinc-800/80">
-              <svg className="h-5 w-5 text-zinc-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-slate-800">
+              <svg className="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
             </div>
-            <p className="text-sm text-zinc-500 font-medium">No quotes yet</p>
-            <p className="text-xs text-zinc-600 mt-1">Start recording to create your first quote.</p>
+            <p className="text-sm font-medium text-slate-400">No quotes yet</p>
+            <p className="mt-1 text-xs text-slate-600">Start recording to create your first quote.</p>
           </div>
         ) : (
           <ul className="space-y-3">
@@ -77,15 +75,15 @@ export default async function HomePage() {
               const { total } = quoteTotals(q);
               return (
                 <li key={q.id}>
-                  <Link href={`/quotes/${q.id}`} className="glass block p-5 group">
+                  <Link href={`/quotes/${q.id}`} className="glass group block p-5">
                     <div className="flex items-center justify-between">
-                      <p className="font-semibold text-white/90 group-hover:text-white transition-colors">
+                      <p className="font-medium text-slate-100 transition-colors group-hover:text-white">
                         {q.jobTitle}
                       </p>
-                      <svg className="w-4 h-4 text-zinc-600 group-hover:text-amber-400 transition-all transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                      <svg className="h-4 w-4 transform text-slate-600 transition-all duration-200 ease-in-out group-hover:translate-x-0.5 group-hover:text-emerald-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
                     </div>
-                    <div className="flex items-center gap-3 mt-2">
-                      <span className="text-amber-400 font-semibold text-sm tracking-tight">
+                    <div className="mt-2 flex items-center gap-3">
+                      <span className="num text-sm text-emerald-400">
                         {formatZar(total)}
                       </span>
                       <span className={`chip text-[10px] ${
@@ -104,9 +102,9 @@ export default async function HomePage() {
         )}
       </section>
 
-      <footer className="mt-auto pt-12 pb-6 text-center page-enter stagger-4">
+      <footer className="page-enter stagger-4 mt-auto pb-6 pt-12 text-center">
         <div className="divider mb-6" />
-        <p className="text-[11px] text-zinc-600 font-medium tracking-wide">
+        <p className="text-[11px] font-medium tracking-wide text-slate-600">
           Live pricing from Builders · Cashbuild · Build It · Leroy Merlin · BUCO · Plumblink
         </p>
       </footer>

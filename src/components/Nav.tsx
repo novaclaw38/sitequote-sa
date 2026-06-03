@@ -11,17 +11,17 @@ export async function Nav() {
   return (
     <nav className="mb-8 flex items-center justify-between gap-4">
       <Link href="/" className="group flex items-center gap-2">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 text-sm font-black text-black shadow-lg shadow-amber-500/20">
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500 text-sm font-bold text-slate-950">
           S
         </div>
-        <span className="text-lg font-bold text-white/90 group-hover:text-white transition-colors">
+        <span className="text-lg font-semibold tracking-tight text-slate-100 transition-colors group-hover:text-white">
           SiteQuote
         </span>
       </Link>
       <div className="flex items-center gap-1 text-sm">
         {contractor ? (
           <>
-            <span className="hidden text-zinc-500 sm:inline mr-2">
+            <span className="mr-2 hidden text-slate-500 sm:inline">
               {contractor.companyName}
             </span>
             <Link href="/price-list" className="btn-secondary !py-1.5 !px-3 !text-xs">
@@ -39,7 +39,7 @@ export async function Nav() {
             </Link>
             <Link
               href="/register"
-              className="btn-secondary !py-1.5 !px-3 !text-xs !border-amber-500/30 !text-amber-400 hover:!bg-amber-500/10"
+              className="btn-secondary !border-emerald-500/30 !px-3 !py-1.5 !text-xs !text-emerald-400 hover:!bg-emerald-500/10"
             >
               Sign up
             </Link>
@@ -61,7 +61,7 @@ function LogoutButton() {
         redirect("/");
       }}
     >
-      <button type="submit" className="btn-secondary !py-1.5 !px-3 !text-xs !text-red-400 !border-red-500/20 hover:!bg-red-500/10">
+      <button type="submit" className="btn-secondary !border-rose-600/30 !px-3 !py-1.5 !text-xs !text-rose-400 hover:!bg-rose-600/10">
         Log out
       </button>
     </form>
