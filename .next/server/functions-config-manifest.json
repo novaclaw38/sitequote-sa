@@ -1,9 +1,0 @@
-{
-  "version": 1,
-  "functions": {
-    "/api/quotes": {
-      "maxDuration": 120
-    },
-    "/api/upload": {}
-  }
-}
